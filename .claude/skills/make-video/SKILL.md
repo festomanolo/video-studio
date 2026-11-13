@@ -47,6 +47,8 @@ Two kinds of video, picked with `mode`:
 }
 ```
 
+The host is the owner's real photo (`studio/src/avatar`), lip-synced automatically. Pick the expression per scene with `"mood"` inside `visual`: `smile` (default), `grin` (hype, outros), `serious` (warnings, gotchas), `angry` ("don't do this" moments). `"avatar": {"style": "cartoon"}` brings back the old SVG character.
+
 `avatar.images` = `{ "closed": "avatar/closed.png", "half": "avatar/half.png", "open": "avatar/open.png", "blink": "avatar/blink.png" }` (files in `studio/public/avatar/`) swaps the built-in cartoon for the user's own drawing.
 
 ### Explainer visuals
