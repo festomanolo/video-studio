@@ -103,7 +103,8 @@ export const Video: React.FC<{ timeline: Timeline }> = ({ timeline: tl }) => {
               height={layout.vertical ? layout.h * 0.36 : layout.h * 0.62}
               x={layout.vertical || layout.w === layout.h ? -layout.u * 2 : layout.w - layout.h * 0.62 * 0.7 + layout.u * 2}
               y={layout.h - (layout.vertical ? layout.h * 0.36 : layout.h * 0.62) + layout.u * 2}
-          />
+              mood={((scene?.visual as { mood?: Mood } | undefined)?.mood) ?? 'smile'}
+              flip={!layout.vertical && layout.w !== layout.h}
         )}
 
         {!fullBleed && (
