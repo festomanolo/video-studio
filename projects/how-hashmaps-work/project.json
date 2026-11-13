@@ -93,6 +93,18 @@
         "type": "stat",
         "value": "O(1)",
         "label": "average lookup",
-    { "say": "Follow for more programming explained simply.", "visual": { "type": "outro", "title": "Now you know.", "cta": "Follow for more", "handle": "@yourhandle" } }
+        "sub": "resize when load > 0.75"
+      }
+    },
+    {
+      "say": "Follow for more programming explained simply.",
+      "visual": {
+        "type": "outro",
+        "title": "Now you know.",
+        "cta": "Follow for more",
+        "handle": "@yourhandle",
+        "mood": "grin"
+      }
+    }
   ]
 }
