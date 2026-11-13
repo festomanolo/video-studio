@@ -71,3 +71,17 @@ def popart(img):     # 2-colour pop art
     g = cv2.equalizeHist(g)
     lv = np.digitize(g, [70, 140])
     pal = np.array([(60, 20, 40), (60, 120, 230), (170, 230, 255)], np.uint8)  # BGR
+    return pal[lv]
+
+STYLES = dict(comic=comic, flat=flat, paint=paint, toon=toon, popart=popart, bighead=bighead)
+HEAD = {'1-smile': (300, 80, 940, 950)}  # x0,y0,x1,y1 of head at 2x, chin line = y1
+
+def finish(rgb, a, outline=10):
+    a = cv2.GaussianBlur(a, (3, 3), 0)
+    ring = cv2.dilate(a, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (outline * 2 + 1,) * 2))
+    out = np.zeros((*a.shape, 4), np.uint8)
+    out[..., :3] = 255; out[..., 3] = ring
+    m = (a[..., None] / 255.0)
+    out[..., :3] = (rgb * m + out[..., :3] * (1 - m)).astype(np.uint8)
+    out[..., 3] = np.maximum(ring, a)
+    return cv2.resize(out, None, fx=0.5, fy=0.5, interpolation=cv2.INTER_AREA)
