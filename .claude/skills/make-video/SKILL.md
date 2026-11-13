@@ -9,7 +9,7 @@ Two kinds of video, picked with `mode`:
 
 | mode | for | look |
 | --- | --- | --- |
-| `explainer` | the user's own tech/programming account | the cartoon avatar (lip-synced to the cloned voice) teaches; code, terminals, diagrams, bullets on top; clean captions |
+| `explainer` | the user's own tech/programming account | the owner's photo avatar (lip-synced to the cloned voice) teaches; code, terminals, diagrams, bullets on top; clean captions |
 | `trend` | growth accounts | faceless viral formats (hook, quiz, would-you-rather, story card, countdown list, facts), Openverse photo backgrounds, big pop captions, progress bar, SFX |
 
 ## Workflow
