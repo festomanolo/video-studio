@@ -93,7 +93,10 @@ export const PhotoAvatar: React.FC<{ height: number; x: number; y: number; mood?
               <path d={cavity} fill={`url(#cg-${mood})`} />
               <g clipPath={`url(#cav-${mood})`}>
                 <ellipse cx={M[0]} cy={M[1] + d * 1.05} rx={(R[0] - L[0]) * 0.27} ry={Math.max(2, d * 0.32)} fill="#8E3A3F" opacity={0.9} />
-                {mood !== 'grin' && mood !== 'angry' && <path d={upper} stroke="#E6DCCB" strokeWidth={teethH * 2} fill="none" opacity={0.95} />}
+                {/* Real teeth already show in the smile/grin/angry photos; only the closed-lip pose gets a hint. */}
+                {mood === 'serious' && <path d={upper} stroke="#D9CFC0" strokeWidth={teethH * 1.4} fill="none" opacity={0.75} />}
+                {/* Soft inner-lip edge where the cavity meets the lower lip */}
+                <path d={`M ${iL[0]} ${iL[1]} Q ${C[0]} ${C[1] + d * 2} ${iR[0]} ${iR[1]}`} stroke="#5A2A2C" strokeWidth={3} fill="none" opacity={0.8} />
               </g>
             </svg>
             <div style={{ ...img, clipPath: jawClip, WebkitMaskImage: jawMask, maskImage: jawMask, transform: `translateY(${d}px)` }}>
