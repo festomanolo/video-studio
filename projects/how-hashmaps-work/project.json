@@ -4,9 +4,19 @@
   "format": "vertical",
   "fps": 30,
   "theme": "midnight",
-  "voice": { "timesteps": 10, "clone": "fast" },
-  "music": { "query": "lofi chill", "volume": 0.08 },
-  "avatar": { "hairStyle": "messy", "glasses": true, "shirt": "#8B6CFF" },
+  "voice": {
+    "timesteps": 10,
+    "clone": "fast"
+  },
+  "music": {
+    "query": "lofi chill",
+    "volume": 0.08
+  },
+  "avatar": {
+    "hairStyle": "messy",
+    "glasses": true,
+    "shirt": "#8B6CFF"
+  },
   "caption": "How does a hash map find your value instantly? #programming #coding #computerscience",
   "scenes": [
     { "say": "How does a hash map find your value instantly?", "visual": { "type": "title", "kicker": "data structures", "title": "How hash maps are instant", "subtitle": "O(1) lookups, explained in 40 seconds" } },
