@@ -81,7 +81,18 @@
             "cue": "list"
           },
           {
-    { "say": "Too many collisions? It doubles the buckets and rehashes. That's why lookups stay fast.", "visual": { "type": "stat", "value": "O(1)", "label": "average lookup", "sub": "resize when load > 0.75" } },
+            "text": "Compare keys one by one",
+            "cue": "checks"
+          }
+        ]
+      }
+    },
+    {
+      "say": "Too many collisions? It doubles the buckets and rehashes. That's why lookups stay fast.",
+      "visual": {
+        "type": "stat",
+        "value": "O(1)",
+        "label": "average lookup",
     { "say": "Follow for more programming explained simply.", "visual": { "type": "outro", "title": "Now you know.", "cta": "Follow for more", "handle": "@yourhandle" } }
   ]
 }
