@@ -1,0 +1,27 @@
+{
+  "name": "video-studio-frames",
+  "version": "0.1.0",
+  "private": true,
+  "description": "React compositions rendered frame by frame with Remotion. Driven by timeline.json from the Rust `vs` CLI.",
+  "scripts": {
+    "studio": "remotion studio",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@fontsource-variable/inter": "5.2.8",
+    "@fontsource-variable/jetbrains-mono": "5.2.8",
+    "@remotion/cli": "4.0.543",
+    "@remotion/media": "^4.0.543",
+    "@remotion/media-utils": "4.0.543",
+    "@remotion/noise": "4.0.543",
+    "@remotion/transitions": "^4.0.543",
+    "prism-react-renderer": "2.4.1",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "remotion": "4.0.543"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.2",
+    "typescript": "5.9.3"
+  }
+}
