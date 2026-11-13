@@ -42,7 +42,6 @@ Two kinds of video, picked with `mode`:
   "voice": { "timesteps": 10, "clone": "fast" },   // clone: fast (10 s reference) | full (whole sample + transcript, slower, closer)
   "music": { "query": "lofi chill", "volume": 0.08 },   // or { "file": "track.mp3" }
   "backgroundQuery": "neon city night",                 // trend: full-frame photo
-  "avatar": { "hairStyle": "messy", "glasses": true, "shirt": "#8B6CFF", "skin": "#C68A5E", "hair": "#1E1A1A", "beard": false },
   "caption": "post text #hashtags",
   "scenes": [ { "say": "spoken line", "hold": 2.0, "visual": { "type": "title", ... } } ]
 }
