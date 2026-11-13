@@ -8,6 +8,7 @@ import type { Scene, Timeline } from './types';
 import { Ambient, PhotoBg } from './components/Background';
 import { Avatar } from './components/Avatar';
 import { PhotoAvatar } from './avatar/PhotoAvatar';
+import type { Mood } from './avatar/rig';
 import { Captions } from './components/Captions';
 import * as X from './scenes/explainer';
 import * as T from './scenes/trend';
