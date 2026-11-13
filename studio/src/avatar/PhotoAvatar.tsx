@@ -86,8 +86,8 @@ export const PhotoAvatar: React.FC<{ height: number; x: number; y: number; mood?
                   <path d={cavity} />
                 </clipPath>
                 <linearGradient id={`cg-${mood}`} x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0" stopColor="#120404" />
-                  <stop offset="1" stopColor="#3A1012" />
+                  <stop offset="0" stopColor="#1A0807" />
+                  <stop offset="1" stopColor="#4A1A1C" />
                 </linearGradient>
               </defs>
               <path d={cavity} fill={`url(#cg-${mood})`} />
