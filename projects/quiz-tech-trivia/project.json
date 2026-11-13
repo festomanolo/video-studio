@@ -1,0 +1,19 @@
+{
+  "id": "quiz-tech-trivia",
+  "mode": "trend",
+  "template": "quiz",
+  "format": "vertical",
+  "fps": 30,
+  "theme": "neon",
+  "voice": { "timesteps": 10, "clone": "fast" },
+  "music": { "query": "upbeat electronic", "volume": 0.1 },
+  "backgroundQuery": "neon city night",
+  "caption": "Only 1% get all 3 right 🤯 Comment your score! #quiz #trivia #tech",
+  "scenes": [
+    { "say": "Only one percent get all three right.", "visual": { "type": "hook", "text": "Only 1% get all 3 right", "emoji": "🤯" } },
+    { "say": "Which company made the first iPhone chip?", "visual": { "type": "quiz", "question": "Who made the first iPhone's chip?", "options": ["Intel", "Samsung", "Qualcomm", "Apple"], "answer": 1 } },
+    { "say": "What does H T T P stand for?", "visual": { "type": "quiz", "question": "What does HTTP stand for?", "options": ["HyperText Transfer Protocol", "High Tech Transfer Process", "Hyper Transfer Text Page"], "answer": 0 } },
+    { "say": "How many bits are in a byte?", "visual": { "type": "quiz", "question": "How many bits in a byte?", "options": ["4", "8", "16", "32"], "answer": 1 } },
+    { "say": "How many did you get? Comment your score!", "visual": { "type": "fact", "label": "YOUR SCORE?", "text": "Comment how many you got right 👇" } }
+  ]
+}
