@@ -85,3 +85,18 @@ def finish(rgb, a, outline=10):
     out[..., :3] = (rgb * m + out[..., :3] * (1 - m)).astype(np.uint8)
     out[..., 3] = np.maximum(ring, a)
     return cv2.resize(out, None, fx=0.5, fy=0.5, interpolation=cv2.INTER_AREA)
+
+if __name__ == '__main__':
+    moods = sys.argv[1:] or ['1-smile']
+    for mood in moods:
+        img, a = load(mood)
+        for name, fn in STYLES.items():
+            d = OUT / name; d.mkdir(parents=True, exist_ok=True)
+            rgb, al = fn(img), a
+            if name == 'bighead' and mood in HEAD:
+                x0, y0, x1, y1 = HEAD[mood]; k = 1.3
+                head = np.dstack([rgb, al])[y0:y1, x0:x1]
+                head = cv2.resize(head, None, fx=k, fy=k, interpolation=cv2.INTER_CUBIC)
+                # feather the neck edge so the bigger head blends into the body
+                fade = np.ones(head.shape[0], np.float32); n = int(head.shape[0] * 0.12)
+                fade[-n:] = np.linspace(1, 0, n)
