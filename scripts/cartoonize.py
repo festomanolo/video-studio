@@ -100,3 +100,18 @@ if __name__ == '__main__':
                 # feather the neck edge so the bigger head blends into the body
                 fade = np.ones(head.shape[0], np.float32); n = int(head.shape[0] * 0.12)
                 fade[-n:] = np.linspace(1, 0, n)
+                body = np.dstack([rgb, al]).copy()
+                pad = int(head.shape[1])
+                canvas = np.zeros((body.shape[0] + 300, body.shape[1] + pad, 4), np.uint8)
+                ox = pad // 2; canvas[300:, ox:ox + body.shape[1]] = body
+                cx = ox + (x0 + x1) // 2 - head.shape[1] // 2; cy = 300 + y1 - head.shape[0]
+                region = canvas[cy:cy + head.shape[0], cx:cx + head.shape[1]].astype(np.float32)
+                ha = (head[..., 3:] / 255.0) * fade[:, None, None]
+                region[..., :3] = head[..., :3] * ha + region[..., :3] * (1 - ha)
+                region[..., 3:] = np.maximum(region[..., 3:], head[..., 3:] * fade[:, None, None])
+                canvas[cy:cy + head.shape[0], cx:cx + head.shape[1]] = region.astype(np.uint8)
+                ys, xs = np.where(canvas[..., 3] > 0)
+                canvas = canvas[ys.min():, xs.min():xs.max() + 1]
+                rgb, al = canvas[..., :3].copy(), canvas[..., 3].copy()
+            cv2.imwrite(str(d / f'{mood}.png'), finish(rgb, al))
+            print(name, mood)
