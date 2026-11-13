@@ -99,7 +99,8 @@ export const Video: React.FC<{ timeline: Timeline }> = ({ timeline: tl }) => {
             />
           ) : (
             // Photo rig: the selfie arm runs off the frame edge so the photo's cut edge never shows.
-            y={layout.h - avatarSize * 1.06}
+            <PhotoAvatar
+              height={layout.vertical ? layout.h * 0.36 : layout.h * 0.62}
             look={layout.vertical ? { x: 0, y: -1 } : { x: -1, y: -0.3 }}
           />
         )}
