@@ -56,3 +56,18 @@ def paint(img):      # soft painterly / storybook
 def sketch(img):     # coloured pencil
     g, _ = cv2.pencilSketch(img, sigma_s=60, sigma_r=0.07, shade_factor=0.02)
     base = boost(smooth(img, 4), 1.3)
+    return (base.astype(np.float32) * (g[..., None] / 255.0) ** 1.6).astype(np.uint8)
+
+def bighead(img, a=None):  # caricature: comic shading, head enlarged over the body
+    return comic(img)
+
+def toon(img):       # bold 3-tone toon shading with heavy outline
+    q = quantize(boost(smooth(img, 8), 1.4, 1.08), 4, 15)
+    e = ink(img, 21, 9, 3)
+    return cv2.bitwise_and(q, q, mask=e)
+
+def popart(img):     # 2-colour pop art
+    g = cv2.cvtColor(smooth(img), cv2.COLOR_BGR2GRAY)
+    g = cv2.equalizeHist(g)
+    lv = np.digitize(g, [70, 140])
+    pal = np.array([(60, 20, 40), (60, 120, 230), (170, 230, 255)], np.uint8)  # BGR
