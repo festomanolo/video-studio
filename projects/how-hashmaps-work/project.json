@@ -56,7 +56,18 @@
     },
     {
       "say": "In code, that's just the hash modulo the number of buckets.",
-    { "say": "In code, that's just the hash modulo the number of buckets.", "visual": { "type": "code", "lang": "rust", "filename": "map.rs", "highlight": [3], "code": "fn bucket(key: &str, n: usize) -> usize {\n    let h = hash(key);\n    (h % n as u64) as usize\n}" } },
+      "visual": {
+        "type": "code",
+        "lang": "rust",
+        "filename": "map.rs",
+        "highlight": [
+          3
+        ],
+        "code": "fn bucket(key: &str, n: usize) -> usize {\n    let h = hash(key);\n    (h % n as u64) as usize\n}"
+      }
+    },
+    {
+      "say": "When two keys land in the same bucket, that's a collision. The map keeps a short list and checks each key.",
     { "say": "When two keys land in the same bucket, that's a collision. The map keeps a short list and checks each key.", "visual": { "type": "bullets", "title": "Collisions", "items": [ { "text": "Two keys, same bucket", "cue": "collision" }, { "text": "Keep a short list", "cue": "list" }, { "text": "Compare keys one by one", "cue": "checks" } ] } },
     { "say": "Too many collisions? It doubles the buckets and rehashes. That's why lookups stay fast.", "visual": { "type": "stat", "value": "O(1)", "label": "average lookup", "sub": "resize when load > 0.75" } },
     { "say": "Follow for more programming explained simply.", "visual": { "type": "outro", "title": "Now you know.", "cta": "Follow for more", "handle": "@yourhandle" } }
