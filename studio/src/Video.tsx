@@ -105,7 +105,8 @@ export const Video: React.FC<{ timeline: Timeline }> = ({ timeline: tl }) => {
               y={layout.h - (layout.vertical ? layout.h * 0.36 : layout.h * 0.62) + layout.u * 2}
               mood={((scene?.visual as { mood?: Mood } | undefined)?.mood) ?? 'smile'}
               flip={!layout.vertical && layout.w !== layout.h}
-        )}
+            />
+          ))}
 
         {!fullBleed && (
           <Captions
