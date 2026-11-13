@@ -41,9 +41,12 @@ export const PhotoAvatar: React.FC<{ height: number; x: number; y: number; mood?
   const [L, R, M] = [r.lipL, r.lipR, r.lipMid];
   // Quadratic control point so the curve passes through M at its midpoint.
   const C: [number, number] = [2 * M[0] - (L[0] + R[0]) / 2, 2 * M[1] - (L[1] + R[1]) / 2];
-  const upper = `M ${L[0]} ${L[1]} Q ${C[0]} ${C[1]} ${R[0]} ${R[1]}`;
-  const lowerBack = `Q ${C[0]} ${C[1] + d * 2.1} ${L[0]} ${L[1] + d * 0.15}`;
-  const cavity = `${upper} L ${R[0]} ${R[1] + d * 0.15} ${lowerBack} Z`;
+  // Cavity is pinched in from the lip corners so the real corners stay intact.
+  const inset = (R[0] - L[0]) * 0.1;
+  const iL: [number, number] = [L[0] + inset, L[1] + (M[1] - L[1]) * 0.25];
+  const iR: [number, number] = [R[0] - inset, R[1] + (M[1] - R[1]) * 0.25];
+  const upper = `M ${iL[0]} ${iL[1]} Q ${C[0]} ${C[1] - 2} ${iR[0]} ${iR[1]}`;
+  const cavity = `${upper} Q ${C[0]} ${C[1] + d * 2} ${iL[0]} ${iL[1]} Z`;
   const teethH = Math.min(d * 0.42, r.maxOpen * 0.32);
   const pad = 46;
   const jawClip = `path('M ${L[0] - pad} ${L[1] + 2} L ${L[0]} ${L[1]} Q ${C[0]} ${C[1]} ${R[0]} ${R[1]} L ${R[0] + pad} ${R[1] + 2} L ${R[0] + pad} ${r.chin + 30} L ${L[0] - pad} ${r.chin + 30} Z')`;
