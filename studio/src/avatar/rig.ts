@@ -1,5 +1,5 @@
 // Photo rig for the owner's avatar. Source: assets/avatar-src (collage of 4 selfies), backgrounds
-// removed with BiRefNet, copied to studio/public/avatar/. Coordinates are pixels in each PNG.
+// removed with Apple Vision (scripts/cutout.swift) + white sticker outline, copied to studio/public/avatar/. Coordinates are pixels in each PNG.
 //  lipL / lipR / lipMid: the line where the lips meet (the jaw is cut along it)
 //  chin: bottom of the chin; maxOpen: jaw drop at full loudness.
 
