@@ -90,7 +90,8 @@ export const Video: React.FC<{ timeline: Timeline }> = ({ timeline: tl }) => {
         })}
 
         {explainer &&
-        {explainer && (
+          (tl.avatar?.style === 'cartoon' || tl.avatar?.images ? (
+            <Avatar
           <Avatar
             size={avatarSize}
             x={layout.vertical || layout.w === layout.h ? layout.w * 0.5 - avatarSize / 2 : layout.w - avatarSize - layout.u * 4}
