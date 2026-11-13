@@ -89,6 +89,7 @@ export const Video: React.FC<{ timeline: Timeline }> = ({ timeline: tl }) => {
           );
         })}
 
+        {explainer &&
         {explainer && (
           <Avatar
             size={avatarSize}
