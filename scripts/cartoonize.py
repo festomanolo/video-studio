@@ -27,3 +27,17 @@ def ink(img, block=11, c=6, thick=1):
 
 def smooth(img, n=6):
     for _ in range(n): img = cv2.bilateralFilter(img, 9, 40, 9)
+    return img
+
+def boost(img, sat=1.25, val=1.05):
+    h = cv2.cvtColor(img, cv2.COLOR_BGR2HSV).astype(np.float32)
+    h[..., 1] *= sat; h[..., 2] *= val
+    return cv2.cvtColor(np.clip(h, 0, 255).astype(np.uint8), cv2.COLOR_HSV2BGR)
+
+def comic(img):      # cel-shaded comic with ink lines
+    q = quantize(boost(smooth(img)), 9, 7)
+    e = ink(img, 13, 7)
+    return cv2.bitwise_and(q, q, mask=e)
+
+def flat(img):       # flat vector poster, few colours, thin ink
+    # Even out the lighting first so the face doesn't split into light/dark islands.
