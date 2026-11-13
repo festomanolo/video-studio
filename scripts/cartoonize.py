@@ -41,3 +41,18 @@ def comic(img):      # cel-shaded comic with ink lines
 
 def flat(img):       # flat vector poster, few colours, thin ink
     # Even out the lighting first so the face doesn't split into light/dark islands.
+    lab = cv2.cvtColor(img, cv2.COLOR_BGR2LAB)
+    lab[..., 0] = cv2.createCLAHE(2.0, (4, 4)).apply(lab[..., 0])
+    img = cv2.cvtColor(lab, cv2.COLOR_LAB2BGR)
+    q = quantize(boost(smooth(img, 10), 1.3), 10, 9)
+    e = cv2.Canny(cv2.medianBlur(q, 5), 30, 90)
+    e = cv2.dilate(e, np.ones((3, 3), np.uint8))
+    q[e > 0] = (35, 25, 30)
+    return q
+
+def paint(img):      # soft painterly / storybook
+    return boost(cv2.stylization(img, sigma_s=80, sigma_r=0.35), 1.2)
+
+def sketch(img):     # coloured pencil
+    g, _ = cv2.pencilSketch(img, sigma_s=60, sigma_r=0.07, shade_factor=0.02)
+    base = boost(smooth(img, 4), 1.3)
