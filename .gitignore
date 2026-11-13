@@ -1,0 +1,8 @@
+target/
+.cache/
+studio/node_modules/
+studio/out/
+studio/public/p/
+projects/*/out/
+.DS_Store
+.env
