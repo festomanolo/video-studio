@@ -14,6 +14,8 @@ export type AvatarConfig = {
   shirt?: string;
   glasses?: boolean;
   beard?: boolean;
+  /** "photo" (default): the owner's photo rig (src/avatar/rig.ts). "cartoon": the SVG character. */
+  style?: 'photo' | 'cartoon';
   /** Your own drawing instead of the built-in cartoon: files under studio/public. */
   images?: { closed: string; half?: string; open: string; blink?: string };
 };
