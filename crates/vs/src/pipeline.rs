@@ -297,7 +297,7 @@ pub fn render(target: &str, o: &RenderOpts) -> Result<PathBuf> {
         // Half resolution, fast encode: for checking timing and layout.
         cmd.args(["--scale=0.5", "--jpeg-quality=70", "--x264-preset=ultrafast", "--crf=28"]);
     } else {
-        cmd.args(["--jpeg-quality=92", "--x264-preset=fast", "--crf=18"]);
+        cmd.args(["--jpeg-quality=95", "--x264-preset=slow", "--crf=16"]);
     }
     if let Some(f) = &o.frames {
         cmd.arg(format!("--frames={f}"));
