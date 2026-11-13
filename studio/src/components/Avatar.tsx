@@ -15,7 +15,7 @@ import type { AvatarConfig, Word } from '../types';
  * studio/public); otherwise the SVG character below is drawn from `avatar` colours.
  */
 
-const DEFAULT: Required<Omit<AvatarConfig, 'images' | 'name'>> = {
+const DEFAULT: Required<Omit<AvatarConfig, 'images' | 'name' | 'style'>> = {
   skin: '#C68A5E',
   hair: '#1E1A1A',
   hairStyle: 'messy',
