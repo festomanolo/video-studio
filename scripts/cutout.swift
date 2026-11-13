@@ -8,3 +8,5 @@ let input = CIImage(contentsOf: URL(fileURLWithPath: args[1]))!
 let handler = VNImageRequestHandler(ciImage: input)
 let req = VNGenerateForegroundInstanceMaskRequest()
 try handler.perform([req])
+guard let obs = req.results?.first else { fatalError("no subject found") }
+let buf = try obs.generateMaskedImage(ofInstances: obs.allInstances, from: handler, croppedToInstancesExtent: false)
