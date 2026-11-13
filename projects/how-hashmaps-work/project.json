@@ -31,7 +31,18 @@
     {
       "say": "Your key goes through a hash function, which turns it into a number. That number picks a bucket.",
       "visual": {
-    { "say": "How does a hash map find your value instantly?", "visual": { "type": "title", "kicker": "data structures", "title": "How hash maps are instant", "subtitle": "O(1) lookups, explained in 40 seconds" } },
+        "type": "diagram",
+        "nodes": [
+          {
+            "id": "k",
+            "label": "\"apple\"",
+            "sub": "key",
+            "cue": "key"
+          },
+          {
+            "id": "h",
+            "label": "hash()",
+            "sub": "\u2192 93021",
     { "say": "Your key goes through a hash function, which turns it into a number. That number picks a bucket.", "visual": { "type": "diagram", "nodes": [ { "id": "k", "label": "\"apple\"", "sub": "key", "cue": "key" }, { "id": "h", "label": "hash()", "sub": "→ 93021", "cue": "hash" }, { "id": "b", "label": "bucket 5", "sub": "93021 % 8", "cue": "bucket" } ] } },
     { "say": "In code, that's just the hash modulo the number of buckets.", "visual": { "type": "code", "lang": "rust", "filename": "map.rs", "highlight": [3], "code": "fn bucket(key: &str, n: usize) -> usize {\n    let h = hash(key);\n    (h % n as u64) as usize\n}" } },
     { "say": "When two keys land in the same bucket, that's a collision. The map keeps a short list and checks each key.", "visual": { "type": "bullets", "title": "Collisions", "items": [ { "text": "Two keys, same bucket", "cue": "collision" }, { "text": "Keep a short list", "cue": "list" }, { "text": "Compare keys one by one", "cue": "checks" } ] } },
