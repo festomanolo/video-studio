@@ -1,0 +1,6 @@
+[submodule "vendor/claude-launchvideo"]
+	path = vendor/claude-launchvideo
+	url = https://github.com/Leonxlnx/claude-launchvideo.git
+[submodule "vendor/openverse"]
+	path = vendor/openverse
+	url = https://github.com/WordPress/openverse.git
