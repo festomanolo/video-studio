@@ -96,7 +96,8 @@ export const Video: React.FC<{ timeline: Timeline }> = ({ timeline: tl }) => {
               x={layout.vertical || layout.w === layout.h ? layout.w * 0.5 - avatarSize / 2 : layout.w - avatarSize - layout.u * 4}
               y={layout.h - avatarSize * 1.06}
               look={layout.vertical ? { x: 0, y: -1 } : { x: -1, y: -0.3 }}
-            x={layout.vertical || layout.w === layout.h ? layout.w * 0.5 - avatarSize / 2 : layout.w - avatarSize - layout.u * 4}
+            />
+          ) : (
             y={layout.h - avatarSize * 1.06}
             look={layout.vertical ? { x: 0, y: -1 } : { x: -1, y: -0.3 }}
           />
